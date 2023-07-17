@@ -9,7 +9,7 @@ export default class TeamsService {
     this._teamsModel = new TeamModel();
   }
 
-  async findAll(): Promise<ServiceResponse<ITeams[]>> {
+  public async findAll(): Promise<ServiceResponse<ITeams[]>> {
     const result = await this._teamsModel.findAll();
 
     if (!result) return { status: 'NOT_FOUND', data: result };
@@ -18,5 +18,11 @@ export default class TeamsService {
       status: 'SUCCESSFUL',
       data: result,
     };
+  }
+
+  public async findById(id: number): Promise<ServiceResponse<ITeams>> {
+    const result = await this._teamsModel.findById(id);
+    if (!result) return { status: 'NOT_FOUND', data: { message: JSON.stringify(result) } };
+    return { status: 'SUCCESSFUL', data: result };
   }
 }

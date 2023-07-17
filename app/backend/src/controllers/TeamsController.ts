@@ -16,4 +16,16 @@ export default class TeamsController {
     }
     res.status(200).json(response.data);
   }
+
+  public async findById(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const serviceResponse = await this._teamsService.findById(Number(id));
+
+    if (serviceResponse.status !== 'SUCCESSFUL') {
+      return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+    }
+
+    res.status(200).json(serviceResponse.data);
+  }
 }
