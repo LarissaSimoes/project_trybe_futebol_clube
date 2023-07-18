@@ -8,6 +8,14 @@ export interface ILogin {
 export default class Validations {
   private static minPasswordLength = 6;
 
+  private static validateEmail(email: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const domainRegex = /^[^\s@]+\.[^\s@]+$/;
+    const validDomain = domainRegex.test(email.split('@')[1]);
+
+    return regex.test(email) && validDomain;
+  }
+
   static loginValidation(req: Request, res: Response, next: NextFunction): Response | void {
     const { email, password } = req.body as ILogin;
 
@@ -20,13 +28,5 @@ export default class Validations {
     }
 
     next();
-  }
-
-  private static validateEmail(email: string): boolean {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const domainRegex = /^[^\s@]+\.[^\s@]+$/;
-    const validDomain = domainRegex.test(email.split('@')[1]);
-
-    return regex.test(email) && validDomain;
   }
 }
