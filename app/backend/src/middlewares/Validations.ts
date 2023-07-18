@@ -6,7 +6,6 @@ export interface ILogin {
 }
 
 export default class Validations {
-  private static emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   private static minPasswordLength = 6;
 
   static loginValidation(req: Request, res: Response, next: NextFunction): Response | void {
@@ -16,9 +15,18 @@ export default class Validations {
       return res.status(400).json({ message: 'All fields must be filled' });
     }
 
-    if (!Validations.emailRegex.test(email) || password.length < Validations.minPasswordLength) {
+    if (!Validations.validateEmail(email) || password.length < Validations.minPasswordLength) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
+
     next();
+  }
+
+  private static validateEmail(email: string): boolean {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const domainRegex = /^[^\s@]+\.[^\s@]+$/;
+    const validDomain = domainRegex.test(email.split('@')[1]);
+
+    return regex.test(email) && validDomain;
   }
 }
