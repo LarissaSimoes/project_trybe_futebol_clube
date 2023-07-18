@@ -25,4 +25,12 @@ describe('Teams test', () => {
     expect(status).to.equal(200);
     expect(body).to.deep.equal(teams);
   });
+  it('deve retornar um time pelo id', async function() {
+    sinon.stub(SequelizeTeamsModel, 'findOne').resolves(team as any);
+
+    const { status, body } = await chai.request(app).get('/teams/1');
+
+    expect(status).to.equal(200);
+    expect(body).to.deep.equal(team);
+  });
 });
