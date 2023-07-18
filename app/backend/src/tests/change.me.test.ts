@@ -33,4 +33,12 @@ describe('Teams test', () => {
     expect(status).to.equal(200);
     expect(body).to.deep.equal(team);
   });
+  it('deve retornar NOT FOUND se o time não existir', async function() {
+    sinon.stub(SequelizeTeamsModel, 'findOne').resolves(null);
+
+    const { status, body } = await chai.request(app).get('/teams/100');
+
+    expect(status).to.equal(404);
+    expect(body.message).to.equal('null');
+  });
 });
