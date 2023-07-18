@@ -1,3 +1,5 @@
+import { ICRUDModelReader } from './ICRUDModel';
+
 export default interface IUsers {
   id: number,
   userName: string,
@@ -6,4 +8,6 @@ export default interface IUsers {
   password: string,
 }
 
-export { IUsers };
+type UsersModelType = ICRUDModelReader<IUsers>;
+
+export { IUsers, UsersModelType };
