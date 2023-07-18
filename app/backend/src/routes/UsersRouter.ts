@@ -8,7 +8,7 @@ const router = Router();
 
 router.post(
   '/',
-  Validations.validateLogin,
+  Validations.loginValidation,
   (req: Request, res: Response) => usersController.findOne(req, res),
 );
 
