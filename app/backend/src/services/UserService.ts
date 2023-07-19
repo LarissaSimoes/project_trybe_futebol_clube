@@ -17,4 +17,12 @@ export default class UsersService {
     }
     return { status: 'SUCCESSFUL', data: user };
   }
+
+  async getRole(email: string): Promise<ServiceResponse<IUsers>> {
+    const user = await this._usersModel.findOne(email);
+    if (!user) {
+      return { status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' } };
+    }
+    return { status: 'SUCCESSFUL', data: user };
+  }
 }
