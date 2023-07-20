@@ -1,3 +1,5 @@
+import { ICRUDModel } from './ICRUDModel';
+
 export interface IMatches {
   id?: number,
   homeTeamId: number,
@@ -6,3 +8,7 @@ export interface IMatches {
   awayTeamGoals: number,
   inProgress: boolean,
 }
+
+type MatchesModelType = ICRUDModel<IMatches>;
+
+export { MatchesModelType };

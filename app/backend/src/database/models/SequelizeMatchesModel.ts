@@ -48,7 +48,6 @@ SequelizeMatchesModel.init({
   inProgress: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    field: 'away_team_goals',
   },
 }, {
   sequelize: db,
