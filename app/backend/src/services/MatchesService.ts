@@ -15,7 +15,7 @@ export default class MatchesService {
     return { status: 'SUCCESSFUL', data: result };
   }
 
-  public async getInProgress(inProgress?: boolean): Promise<ServiceResponse<IMatches[]>> {
+  public async findInProgress(inProgress?: boolean): Promise<ServiceResponse<IMatches[]>> {
     const matches = await this._matchesModel.findInProgress(inProgress);
     return { status: 'SUCCESSFUL', data: matches };
   }

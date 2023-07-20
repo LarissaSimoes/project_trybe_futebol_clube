@@ -16,7 +16,7 @@ export default class MatchesController {
       const response = await this._matchesService.findAll();
       return res.status(mapStatusHTTP(response.status)).json(response.data);
     }
-    const inProgressMatches = await this._matchesService.getInProgress(isInProgress);
+    const inProgressMatches = await this._matchesService.findInProgress(isInProgress);
     return res.status(mapStatusHTTP(inProgressMatches.status)).json(inProgressMatches.data);
   }
 }
