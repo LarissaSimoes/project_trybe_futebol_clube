@@ -45,4 +45,18 @@ export default class MatchesModel {
     const dbData = await this.findById(id);
     return dbData;
   }
+
+  async updateMatch(
+    id: IMatches['id'],
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) : Promise<IMatches | null> {
+    await this.model.update({
+      homeTeamGoals, awayTeamGoals,
+    }, {
+      where: { id },
+    });
+    const dbData = await this.findById(id);
+    return dbData;
+  }
 }
