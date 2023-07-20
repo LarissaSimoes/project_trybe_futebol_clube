@@ -27,4 +27,22 @@ export default class MatchesModel {
     });
     return dbData;
   }
+
+  async findById(id: IMatches['id']): Promise<IMatches | null> {
+    const dbData = await this.model.findByPk(id);
+    if (!dbData) return null;
+
+    const { homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress } = dbData;
+    return { id, homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress };
+  }
+
+  async finishMatch(id: IMatches['id']) : Promise<IMatches | null> {
+    await this.model.update({
+      inProgress: false,
+    }, {
+      where: { id },
+    });
+    const dbData = await this.findById(id);
+    return dbData;
+  }
 }
