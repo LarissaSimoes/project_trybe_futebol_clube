@@ -39,4 +39,14 @@ export default class MatchesController {
     }
     return res.status(200).json({ message: 'Match updated' });
   }
+
+  public async createMatch(req: Request, res: Response) : Promise<Response> {
+    const data = req.body;
+    const serviceResponse = await this._matchesService
+      .createMatch({ ...data, inProgress: true });
+    if (serviceResponse.status !== 'SUCCESSFUL') {
+      return res.status(mapStatusHTTP(serviceResponse.status)).json(serviceResponse.data);
+    }
+    return res.status(201).json(serviceResponse.data);
+  }
 }

@@ -59,4 +59,11 @@ export default class MatchesModel {
     const dbData = await this.findById(id);
     return dbData;
   }
+
+  async createMatch(data: IMatches): Promise<IMatches | null> {
+    const dbData = await this.model.create(data);
+    const { id, homeTeamId, homeTeamGoals,
+      awayTeamId, awayTeamGoals, inProgress }: IMatches = dbData;
+    return { id, homeTeamId, homeTeamGoals, awayTeamId, awayTeamGoals, inProgress };
+  }
 }
