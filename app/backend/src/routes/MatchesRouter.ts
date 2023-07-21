@@ -1,6 +1,7 @@
 import { Request, Router, Response } from 'express';
 import MatchesController from '../controllers/MatchesController';
 import TokenValidation from '../middlewares/TokenValidation';
+import MatchesValidation from '../middlewares/MatchesValidation';
 
 const matchesController = new MatchesController();
 
@@ -23,6 +24,7 @@ router.patch(
 router.post(
   '/',
   TokenValidation.validateToken,
+  MatchesValidation.validateMatch,
   (req: Request, res: Response) => matchesController.createMatch(req, res),
 );
 

@@ -60,7 +60,7 @@ export default class MatchesModel {
     return dbData;
   }
 
-  async createMatch(data: IMatches): Promise<IMatches | null> {
+  async createMatch(data: IMatches): Promise<IMatches> {
     const dbData = await this.model.create(data);
     const { id, homeTeamId, homeTeamGoals,
       awayTeamId, awayTeamGoals, inProgress }: IMatches = dbData;
