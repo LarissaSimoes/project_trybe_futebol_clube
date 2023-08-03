@@ -171,4 +171,35 @@ const matchesMock =
         in_progress: false,
       };
 
-      export { matchesMock, finishedMatchesMock, matchesInProgressMock, matchToBeFinished, updateMatchBody, matchToBeUpdated };
+      const matchToBeCreated = {
+        id: 1,
+        home_team_id: 3,
+        home_team_goals: 3,
+        away_team_id: 1,
+        away_team_goals: 1,
+        in_progress: false,
+      };
+
+      const bodyForMatchCreate = {
+        homeTeamId: 5,
+        awayTeamId: 10,
+        homeTeamGoals: 1,
+        awayTeamGoals: 3,
+      }
+
+      const invalidBody = {
+        homeTeamId: 2,
+        awayTeamId: 2,
+        homeTeamGoals: 1,
+        awayTeamGoals: 1,
+      }
+
+      const bodyWithNonExistentTeam = {
+        homeTeamId: 17,
+        awayTeamId: 3,
+        homeTeamGoals: 2,
+        awayTeamGoals: 1,
+      };
+
+      export { matchesMock, finishedMatchesMock, matchesInProgressMock, matchToBeFinished,
+         updateMatchBody, matchToBeUpdated, matchToBeCreated, bodyForMatchCreate, invalidBody, bodyWithNonExistentTeam };
