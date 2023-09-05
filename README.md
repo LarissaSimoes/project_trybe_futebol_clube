@@ -33,7 +33,7 @@ cd project_trybe_futebol_clube
 # Instale as dependências
 npm i && npm run install:front && npm run install:back
 # Inicie o Docker Compose
-cd app && docker-compose up
+cd app && npm run compose:up
 ```
 
 <br /><hr /><br />
