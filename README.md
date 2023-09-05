@@ -27,7 +27,7 @@ O objetivo central foi criar um back-end sólido e altamente escalável que cump
 
 ```bash
 # Clone ou baixe o repositório
-git clone git clone git@github.com:LarissaSimoes/project_trybe_futebol_clube.git
+git clone git@github.com:LarissaSimoes/project_trybe_futebol_clube.git
 # Entre no diretório
 cd project_trybe_futebol_clube
 # Instale as dependências
