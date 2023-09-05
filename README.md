@@ -23,7 +23,18 @@ O objetivo central foi criar um back-end sólido e altamente escalável que cump
 
   ## Como executar o projeto
 
-> Clonar o repositório: git clone git@github.com:LarissaSimoes/project_trybe_futebol_clube.git
-> Entrar no repositório: cd project_trybe_futebol_clube
-> Instalar as dependências: npm i && npm run install:front && npm run install:back
-> Subir os contâineres: cd app && docker-compose up
+<br/>
+
+```bash
+# Clone ou baixe o repositório
+git clone git clone git@github.com:LarissaSimoes/project_trybe_futebol_clube.git
+# Entre no diretório
+cd project_trybe_futebol_clube
+# Instale as dependências
+npm i && npm run install:front && npm run install:back
+# Inicie o Docker Compose
+cd app && docker-compose up
+```
+
+<br /><hr /><br />
+
