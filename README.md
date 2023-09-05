@@ -38,3 +38,13 @@ cd app && docker-compose up
 
 <br /><hr /><br />
 
+<p align='center'>
+  Desenvolvido por <b>Larissa Simões</b>
+  <br/><br/>
+
+  <a href="https://www.linkedin.com/in/dev-larissa-carneiro-simoes/">
+    <img alt="linkedIn" height="30px" src="https://i.imgur.com/TQRXxhT.png" />
+  </a>
+  &nbsp;&nbsp;
+</p>
+
